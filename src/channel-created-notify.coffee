@@ -6,4 +6,4 @@
 
 module.exports = (robot) ->
   robot.adapter.client?.on? 'raw_message', (msg) ->
-    robot.messageRoom "#general", msg.type
+    robot.messageRoom "#general", "aaa"
