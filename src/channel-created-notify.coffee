@@ -6,4 +6,5 @@
 
 module.exports = (robot) ->
   robot.adapter.client?.on? 'raw_message', (msg) ->
-    robot.logger.error robot
+    if msg?.type == 'channel_created'
+      robot.logger.error "aaaa"
