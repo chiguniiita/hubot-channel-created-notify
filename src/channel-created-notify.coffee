@@ -6,4 +6,5 @@
 
 module.exports = (robot) ->
   robot.adapter.client?.on? 'raw_message', (msg) ->
-    robot.logger.error msg
+    robot.messageRoom "#general", msg?.type
+    robot.logger.error msg.type
