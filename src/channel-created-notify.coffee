@@ -4,4 +4,4 @@ module.exports = (robot) ->
   slack.on 'raw_message', (message) ->
     if message?.type == 'channel_created'
       return if typeof robot?.send isnt 'function'
-      robot.send {room: "new_channels"}, "<##{message.channel.id}> 
+      robot.send {room: "#general"}, "<##{message.channel.id}>
