@@ -1,9 +1,4 @@
 module.exports = (robot) ->
-
-  slack = robot.adapter.client
-  slack.on 'raw_message', (message) ->
-    robot.logger.error "1"
-    if message?.type == 'channel_created'
-      return if typeof robot?.send isnt 'function'
-      robot.logger.error "2"
-      robot.send {room: "#general"}, "<##{message.channel.id}>
+  robot.adapter.client?.on? 'raw_message', (msg) ->
+    if msg?.type == 'channel_created'
+      robot.messageRoom "#general", "New channel: <##{msg.channel.id}|#{msg.channel.name}>"
